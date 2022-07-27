@@ -1,0 +1,44 @@
+\documentclass{scrreprt}
+\newcommand{\somequote}[3]{\begin{quotation} \textit{#1} \end{quotation} \begin{flushright} - #2, \textit{#3}\end{flushright} }
+\newtheorem{theorem}{Theorem}
+\begin{document}
+
+\section{Induction}
+
+Mathematical induction is a proof technique mainly used to prove results about natural numbers.
+
+\subsection*{The need for induction}
+
+Have a look at this formula.
+$$\sum_{k = 0}^n k = \frac{n(n + 1)}{2}$$
+
+How could you go about proving it?
+
+For starters, you might verify the formula, plugging in a few values for $n$ and $k$. Then you'll get
+$$n = 3, \qquad 1 + 2 + 3 = 6 = \frac{3(3 + 1)}{2}$$
+
+How about $n = 4$?
+$$n = 4, \qquad 1 + 2 + 3 + 4 = 10 = \frac{4(4 + 1)}{2}$$
+
+Indeed, you could work through the calculations for a bunch of other $n$:s.
+
+However, your task was to prove it for every possible $n$. This would mean performing the same calculation an infinite number of times, which clearly isn't feasible.
+
+\subsection*{The main idea}
+
+The following quote captures the main idea behind mathematical induction.
+
+\somequote{Mathematical induction proves that we can climb as high as we like on a ladder, by proving that we can climb onto the bottom rung (the basis) and that from each rung we can climb up to the next one (the step).}{R. Graham, D. Knuth, O. Patashnik}{Concrete Mathematics}
+
+\subsection*{In practise}
+
+Inductive proofs all follow the same template.
+
+\subsection*{Guidelines}
+Here are some practical guidelines.
+
+As a rule of thumb, whenever you're asked to prove a result about natural numbers, consider an inductive proof. Induction isn't the only proof technique out there, but it might be your best bet.
+
+
+
+\end{document}
