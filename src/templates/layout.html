@@ -31,11 +31,9 @@
       <button class="btn" onclick="toggle()" style="float: right" id="open">&#9776;</button>
       <form action="/"><button class="btn" style="float: right"><i class="fa fa-home"></i></button></form>
       <div id="mySidenav" class="sidenav">
-
         {% for topic in topics %}
-        <a href="#{{ topic }}">{{ topic }}</a><br>
+        <a href="#{{ topic }}" id="menu_item">{{ topic }}</a><br>
         {% endfor %}
-
       </div>
     </div>
 
@@ -48,21 +46,22 @@
         window.onscroll = function() {myFunction()};
 
         function myFunction() {
-          console.log("SCROLLED!");
           var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
           var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
           var scrolled = (winScroll / height) * 100;
           document.getElementById("myBar").style.width = scrolled + "%";
         }
 
-        var open = false;
         function toggle() {
           var links = document.getElementById("mySidenav").children;
           for (i = 0; i < links.length; i++){
-            console.log(links[i], open);
-            links[i].style.visibility = (open) ? 'hidden' : 'visible';
+            if (links[i].classList.contains('hide')){
+              links[i].classList.remove('hide');
+            }
+            else {
+              links[i].classList.add('hide');
+            }
           }
-          open = !open;
         }
     </script>
   </body>

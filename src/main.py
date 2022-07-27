@@ -20,5 +20,4 @@ async def load_module(page, request: Request):
     paths = [os.path.join(f'./{page}', file) for file in files]
     topics = [file[:-4] for file in files]
     content = converter(paths)
-    print(content)
     return templates.TemplateResponse("module.html", {"request": request, "content": content, "topics": topics})
