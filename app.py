@@ -17,3 +17,7 @@ def data(section):
     topics = [file[:-4] for file in files]
     content = converter(paths)
     return render_template('module.html', content=content, topics=topics)
+
+
+if __name__ == '__main__':
+    app.run(debug=False, host='0.0.0.0')
