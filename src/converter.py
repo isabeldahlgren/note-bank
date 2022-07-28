@@ -8,14 +8,15 @@ def converter(latex_files):
         with open(tmp) as file:
             txt = file.read()
 
-            # TODO: Add a for loop and create support for 'fun fact' boxes
+            # TODO: Add a for loop
+            # TODO: Add support for enumerate
 
             # Trimming document
             txt = txt[(txt.find('\\begin{document}') + 16):txt.find('\\end{document}')]
 
             # Creating titles
             txt = re.sub('\\\\section(\*)?{(.*)}', r'<h3 id="\2"><a class="hashtag" href="#\2">#</a>\2</h3><p>', txt)
-            txt = re.sub('\\\\subsection(\*)?{(.*)}', r'<h4>\2</h4><p>', txt)
+            txt = re.sub('\\\\subsection(\*)?{(.*)}', r'<h4 id="\2"><a class="hashtag" href="#\2">#</a>\2</h4><p>', txt)
 
             # Creating theorem/definition cards
             txt = re.sub('(\\\\begin{theorem})|(\\\\begin{definition})', '</p><div class="card"><div class="card-body">', txt)

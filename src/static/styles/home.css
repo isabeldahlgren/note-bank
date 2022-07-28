@@ -1,0 +1,14 @@
+h1 {
+    font-size: 100px;
+    text-align: center;
+    padding: 20px;
+    background-image: linear-gradient(#80b9ff, #ffc66f);
+    background-clip: text;
+    color: transparent;
+}
+
+.container {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

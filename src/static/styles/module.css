@@ -1,12 +1,13 @@
 #menu_item {
   text-decoration: none;
   color: rgb(146, 146, 146);
-  opacity: 1;
-  transition: opacity 1s;
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-#menu_item.hide {
-  opacity: 0;
+#menu_item.show {
+  opacity: 1;
 }
 
 #menu_item:hover {
@@ -20,20 +21,18 @@
 }
 
 .btn {
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+  border: none;
+}
+
 .btn:hover {
-    color: rgb(120, 120, 120);
+  color: rgb(120, 120, 120);
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 .hashtag {
@@ -48,10 +47,11 @@
 }
 
 .sidenav {
+  position: sticky;
   height: 100%;
-  position: fixed;
+  width: 25%;
   top: 15px;
-  left: 10px;
+  z-index: -1;
 }
 
 .progress-container {
@@ -64,8 +64,9 @@
   height: 10px;
   background: #adadad;
   width: 0%;
+  z-index: 1;
 }
 
 body {
-  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-y: hidden;
 }

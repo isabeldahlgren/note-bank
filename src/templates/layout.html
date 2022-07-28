@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Aha</title>
+    <title>Welcome!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -18,16 +18,14 @@
           fontCache: 'global'
         }
       };
-      </script>
-      <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/module.css') }}?version=51">
+    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel= "stylesheet" type="text/css" href= "{{ url_for('static', filename='styles/module.css') }}">
  </head>
   <body>
-    
+
     <div class="header">
-      <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-      </div> 
+      <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
       <button class="btn" onclick="toggle()" style="float: right" id="open">&#9776;</button>
       <form action="/"><button class="btn" style="float: right"><i class="fa fa-home"></i></button></form>
       <div id="mySidenav" class="sidenav">
@@ -55,14 +53,15 @@
         function toggle() {
           var links = document.getElementById("mySidenav").children;
           for (i = 0; i < links.length; i++){
-            if (links[i].classList.contains('hide')){
-              links[i].classList.remove('hide');
+            if (links[i].classList.contains('show')){
+              links[i].classList.remove('show');
             }
             else {
-              links[i].classList.add('hide');
+              links[i].classList.add('show');
             }
           }
         }
+
     </script>
   </body>
 </html>
