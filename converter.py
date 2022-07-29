@@ -24,15 +24,18 @@ def converter(latex_files):
             txt = re.sub('\[(.*)\]', r'<b>\1</b>', txt)
 
             # Creating block quotes
-            txt = re.sub('\\\\somequote{(.*)}{(.*)}{(.*)}', r'''<figure>
+            txt = re.sub('\\\\somequote{(.*)}{(.*)}{(.*)}', r'''</p><figure>
             <blockquote class="blockquote">
                 <p>\1</p>
             </blockquote>
             <figcaption class="blockquote-footer">
                 \2, <cite title="Source Title">\3</cite>
             </figcaption>
-            </figure>
+            </figure><p>
             ''', txt)
+            txt = re.sub('\\\\simplequote{(.*)}', r'''</p><figure><blockquote class="blockquote">
+            <p>\1</p>
+            </blockquote></figure><p>''', txt)
 
             txt = re.sub('\\\\begin{enumerate}', '<ol>', txt)
             txt = re.sub('\\\\end{enumerate}', '</ol>', txt)

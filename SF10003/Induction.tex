@@ -1,50 +1,66 @@
 \documentclass{scrreprt}
-\newcommand{\somequote}[3]{\begin{quotation} \textit{#1} \end{quotation} \begin{flushright} - #2, \textit{#3}\end{flushright} }
-\newtheorem{theorem}{Theorem}
+\usepackage{everything}
 \begin{document}
 
-\section{Induction}
+\section*{Induction}
 
-Mathematical induction is a proof technique mainly used to prove results about natural numbers.
+Mathematical induction is a proof technique used to prove patterns.
 
 \subsection*{The need for induction}
 
-Have a look at this formula.
-$$\sum_{k = 0}^n k = \frac{n(n + 1)}{2}$$
+Have a look at the following formula.
+$$\sum_{k = 1}^n k = \frac{n(n + 1)}{2}$$
 
-How could you go about proving it?
+How could you prove it for every $n \geq 1$?
 
-For starters, you might verify the formula, plugging in a few values for $n$ and $k$. Then you'll get
-$$n = 3, \qquad 1 + 2 + 3 = 6 = \frac{3(3 + 1)}{2}$$
+For starters, you might verify the formula, plugging in a few values for $n$. For example,
+$$n = 3: \qquad 1 + 2 + 3 = 6 = \frac{3(3 + 1)}{2}$$
 
-How about $n = 4$?
-$$n = 4, \qquad 1 + 2 + 3 + 4 = 10 = \frac{4(4 + 1)}{2}$$
+You could work through the calculations for a bunch of other $n$:s. However, your task was to prove it for every possible $n$. You would have to perform the same calculation an infinite number of times.
 
-Indeed, you could work through the calculations for a bunch of other $n$:s.
+\subsection*{Inductive proof of the sum formula}
+Induction uses some logic to sidestep this problem.
 
-However, your task was to prove it for every possible $n$. This would mean performing the same calculation an infinite number of times, which clearly isn't feasible.
+Firstly, you should check that the formula holds for $n = 1$.
+$$\sum_{k = 1}^n k = 1 = \frac{1(1 + 1)}{2}$$
 
-\subsection*{The main idea}
+Secondly, assume that the formula holds for some particular $n$. For $n + 1$, you get
+\begin{align*}
+    \sum_{k = 1}^{n + 1} k &= \underbrace{1 + ... + n}_{n(n + 1)/2 \text{, by assumption}} + (n + 1) \\
+    &= \frac{n(n + 1)}{2} + (n + 1) = \frac{n(n + 1) + 2 \cdot (n + 1)}{2}\\
+    &= \frac{(n + 1)(n + 2)}{2} = \frac{(n + 1)((n + 1) + 1)}{2} \\
+\end{align*}
+You might recognise the final expression as the sum formula for $n + 1$.
 
-The following quote captures the main idea behind mathematical induction.
+And now you're done. These two findings actually guarantee that the formula is true for all $n \geq 1$.
 
-\somequote{Mathematical induction proves that we can climb as high as we like on a ladder, by proving that we can climb onto the bottom rung (the basis) and that from each rung we can climb up to the next one (the step).}{R. Graham, D. Knuth, O. Patashnik}{Concrete Mathematics}
+Induction can be likened to a domino effect.
 
-\subsection*{In practise}
+\simplequote{If the first domino brick is tipped, and a falling domino brick is heavy enough to tip the next, every domino brick will fall.}{}{}
 
-Inductive proofs all follow the same template. Here
+\subsection*{The Principle of Induction}
+In general, suppose you want to prove a statement for all $n \geq n_0$, where $n_0$ is some natural number. Let $P(n)$ be shorthand for 'the statement is true for the number $n$'.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit leo, vitae varius erat ultrices eu. Curabitur euismod iaculis est at tincidunt. Suspendisse arcu elit, suscipit at ante sit amet, mattis interdum risus. Aliquam euismod justo sed metus vehicula, eu euismod lectus porta. In ut sem ac nulla malesuada pulvinar at vitae metus. Integer elementum ipsum et sapien dapibus, nec posuere arcu dapibus. Integer a sollicitudin erat, at aliquet odio. Morbi non ante laoreet, auctor massa sed, posuere velit. Etiam a eros maximus, porta tellus quis, maximus eros. Nam justo nisl, cursus a purus quis, suscipit dignissim metus. Nam porttitor justo id dolor fringilla porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+An inductive proof involves two steps.
+\begin{enumerate}
+    \item Base case: show that $P(n_0)$.
+    \item Inductive step: show that 'if $P(n)$, then $P(n + 1)$'. The assumption that $P(n)$ is called the inductive hypothesis.
+\end{enumerate}
+At this stage, you have effectively shown that $P(n)$ for all $n \geq n_0$.
 
-Quisque auctor faucibus nulla, vitae suscipit orci condimentum ullamcorper. Aenean porttitor orci eu molestie pretium. Aenean cursus massa eget ex suscipit finibus. Ut ut hendrerit dolor. Integer molestie diam vel elit tincidunt, vehicula volutpat enim tristique. Etiam ut rutrum ex, ut sollicitudin erat. Proin mattis est quis congue bibendum. Curabitur laoreet rutrum massa, eget mollis ante fringilla vel. Nunc sed semper ex.
-
-Aliquam viverra ullamcorper orci, in elementum enim elementum et. Donec sagittis orci scelerisque tincidunt fermentum. Vestibulum tristique posuere luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed lorem orci, bibendum ut risus finibus, rhoncus sollicitudin mi. Nunc tristique felis risus, malesuada molestie enim imperdiet et. Nam vehicula eu eros ornare vestibulum. Pellentesque enim dolor, porta nec erat eget, convallis cursus mauris. Donec ultricies, felis vel pulvinar vehicula, velit lorem scelerisque arcu, vel tristique nisl nisi et purus. Mauris eu tellus sem. Aliquam tempus auctor augue feugiat tempor. Morbi eu ipsum massa. Proin diam nisl, bibendum eget nulla at, vulputate facilisis urna.
+You might come across the Principle of Induction. Loosely speaking, this is the idea that induction works.
 
 \subsection*{Guidelines}
-Here are some practical guidelines.
+There are may proof techniques out there, but induction may prove useful if:
 
-As a rule of thumb, whenever you're asked to prove a result about natural numbers, consider an inductive proof. Induction isn't the only proof technique out there, but it might be your best bet.
+\begin{itemize}
+    \item You want to prove a result about natural numbers.
+    \item You find yourself wanting to say 'and so on...'
+\end{itemize}
 
+\subsection*{Additional material}
+In this course, you will use induction to prove formulas, inequalities and divisibility.
 
+But induction can be applied to other kinds of problems too. For example, suppose $f(x) = \frac{1}{x}$. Then you could use induction to prove that $$f^n(x) = (-1)^n \cdot n! \cdot x^{-(n + 1)}$$ Can you see how?
 
 \end{document}
