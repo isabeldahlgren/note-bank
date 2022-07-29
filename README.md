@@ -1,2 +1,5 @@
-# notebank
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/isabeldahlgren/note-bank)
+# Note bank
+
+Welcome to the note bank. This is a website with bite-sized explainers of mathematical concepts.
+
+Want to contribute? You're most welcome to write up notes or make changes to the code. Thank you.
