@@ -1,0 +1,35 @@
+# Inspired by https://github.com/BogDAAAMN/deta-deploy-action
+name: "Deploy to Deta"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DETA_NAME: "note-bank"
+  DETA_PROJECT: "default"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Install Deta CLI as per docs
+      # https://docs.deta.sh/docs/cli/install
+      - name: Install Deta CLI
+        shell: bash
+        run: |
+          curl -fsSL https://get.deta.dev/cli.sh | sh
+
+      # Checkout the repo
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      # Using the access token, deploy the project to Deta
+      # https://docs.deta.sh/docs/cli/commands#deta-deploy
+      - name: Deploy to Deta
+        shell: bash
+        run: |
+          export DETA_ACCESS_TOKEN=${{ secrets.DETA_ACCESS_TOKEN }}
+          ~/.deta/bin/deta deploy
