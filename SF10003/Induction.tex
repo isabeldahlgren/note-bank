@@ -3,60 +3,43 @@
 \begin{document}
 
 \section*{Induction}
-
 Mathematical induction is a proof technique used to prove patterns.
 
 \subsection*{The need for induction}
-
 Have a look at the following formula.
 $$\sum_{k = 1}^n k = \frac{n(n + 1)}{2}$$
-
 How could you prove it for every $n \geq 1$?
 
 For starters, you might verify the formula, plugging in a few values for $n$. For example,
 $$n = 3: \qquad 1 + 2 + 3 = 6 = \frac{3(3 + 1)}{2}$$
-
 You could work through the calculations for a bunch of other $n$:s. However, your task was to prove it for every possible $n$. You would have to perform the same calculation an infinite number of times.
 
 \subsection*{Inductive proof of the sum formula}
-Induction uses some logic to sidestep this problem.
+Induction uses a bit of logic to sidestep this problem.
 
 Firstly, you should check that the formula holds for $n = 1$.
 $$\sum_{k = 1}^n k = 1 = \frac{1(1 + 1)}{2}$$
-
 Secondly, assume that the formula holds for some particular $n$. For $n + 1$, you get
 \begin{align*}
     \sum_{k = 1}^{n + 1} k &= \underbrace{1 + ... + n}_{n(n + 1)/2 \text{, by assumption}} + (n + 1) \\
     &= \frac{n(n + 1)}{2} + (n + 1) = \frac{n(n + 1) + 2 \cdot (n + 1)}{2}\\
     &= \frac{(n + 1)(n + 2)}{2} = \frac{(n + 1)((n + 1) + 1)}{2} \\
 \end{align*}
-You might recognise the final expression as the sum formula for $n + 1$.
+But the final expression is just the sum formula for $n + 1$. Hence, if the formula is true for $n$, it is also true for $n + 1$.
 
-And now you're done. These two findings actually guarantee that the formula is true for all $n \geq 1$.
+This finding, along with the fact that the formula is true for $n = 1$, actually guarantees that the formula is true for all $n \geq 1$.
 
-Induction can be likened to a domino effect.
-
-\simplequote{If the first domino brick is tipped, and a falling domino brick is heavy enough to tip the next, every domino brick will fall.}
+Induction is often likened to a domino effect. \simplequote{If the first domino brick is tipped, and a falling domino brick is heavy enough to tip the next, every domino brick will fall.}
 
 \subsection*{The Principle of Induction}
-In general, suppose you want to prove a statement for all $n \geq n_0$, where $n_0$ is some natural number. Let $P(n)$ be shorthand for 'the statement is true for the number $n$'.
-
-An inductive proof involves two steps.
+In general, suppose you want to prove a statement for all $n \geq n_0$, where $n_0$ is some natural number. Let $P(n)$ be shorthand for 'the statement is true for the number $n$'. An inductive proof involves two steps.
 \begin{enumerate}
     \item Base case: show that $P(n_0)$.
     \item Inductive step: show that 'if $P(n)$, then $P(n + 1)$'. The assumption that $P(n)$ is called the inductive hypothesis.
 \end{enumerate}
 At this stage, you have effectively shown that $P(n)$ for all $n \geq n_0$.
 
-You might come across the Principle of Induction. Loosely speaking, this is the idea that induction works.
-
-\subsection*{Guidelines}
-There are may proof techniques out there, but induction may prove useful if:
-
-\begin{itemize}
-    \item You want to prove a result about natural numbers.
-    \item You find yourself wanting to say 'and so on...'
-\end{itemize}
+When people refer to the Principle of Induction, all they mean is the idea that (1) and (2) imply that $P(n)$ for all $n \geq n_0$. Loosely speaking, the Principle of Induction is the idea that induction works. There are may proof techniques out there, but induction may prove useful if you're dealing with natural numbers.
 
 \subsection*{Additional material}
 In this course, you will use induction to prove formulas, inequalities and divisibility.

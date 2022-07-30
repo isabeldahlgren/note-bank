@@ -15,8 +15,8 @@ def converter(latex_files):
             txt = txt[(txt.find('\\begin{document}') + 16):txt.find('\\end{document}')]
 
             # Creating titles
-            txt = re.sub('\\\\section(\*)?{(.*)}', r'<h3 id="\2"><a class="hashtag" href="#\2">#</a>\2</h3><p>', txt)
-            txt = re.sub('\\\\subsection(\*)?{(.*)}', r'</p><h4 id="\2"><a class="hashtag" href="#\2">#</a>\2</h4><p>', txt)
+            txt = re.sub('\\\\section(\*)?{(.*)}', r'<h4 id="\2">\2<a class="hashtag" href="#\2">#</a></h4><p>', txt)
+            txt = re.sub('\\\\subsection(\*)?{(.*)}', r'</p><h5 id="\2">\2<a class="hashtag" href="#\2">#</a></h5><p>', txt)
 
             # Creating theorem/definition cards
             txt = re.sub('\\\\begin\{(theorem|definition)\}', '</p><div class="card"><div class="card-body">', txt)
@@ -37,6 +37,7 @@ def converter(latex_files):
             <p>\1</p>
             </blockquote></figure><p>''', txt)
 
+            # Support for enumerate/itemize
             txt = re.sub('\\\\begin{enumerate}', '<ol>', txt)
             txt = re.sub('\\\\end{enumerate}', '</ol>', txt)
             txt = re.sub('\\\\begin{itemize}', '<ul>', txt)
@@ -44,7 +45,7 @@ def converter(latex_files):
             txt = re.sub('\\\\item (.*)', r'<li>\1</li>', txt)
 
             # Adding to result and resetting txt
-            res += f'\n\n{txt}'
+            res += f'\n{txt}'
             txt = ''
 
     return res

@@ -18,24 +18,30 @@
         }
       };
     </script>
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
     </script>
-    <link rel="stylesheet" href="{{ url_for('static', path='/styles/home.css') }}?version=51">
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles/home.css') }}?version=1">
   </head>
   <body>
-    <div class="container">
-      <h1>Welcome!</h1>
-      <div class="card">
-        <div class="card-body">
-        Here you'll find bite-sized explainers of mathematical concepts on an undergraduate level.
+    <div class="container-fluid">
+      <div class="container">
+        <h1>The note bank</h1><br>
+
+          <p>
+            Here you'll find bite-sized explainers of mathematical concepts on an undergraduate level. You're most welcome to contribute, either by writing up notes or changing the code.
+            
+            Check out the <a href="https://github.com/isabeldahlgren/note-bank">GitHub</a> page or reach out via <a href = "mailto: isabelda@kth.se">email</a>.
+          </p>
+
+        <h2>(intuition + technicalities) - wordiness</h2><br>
+
+        <form action="/SF10003">
+          <button class="btn btn-light">SF10003</button>
+        </form>
         
-        Want to contribute? You're most welcome to write up notes or make changes to the code. Visit the <a href="https://github.com/isabeldahlgren/note-bank">GitHub</a> page for more. Thanks!
-        </div>
       </div>
-      <br>
-      <form action="/SF10003"><button class="btn btn-light">SF10003</button></form>
     </div>
+  </div>
   </div>
   </body>
 </html>
