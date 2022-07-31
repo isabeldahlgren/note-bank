@@ -1,40 +1,10 @@
 h1 {
     font-size: 75px;
     text-align: center;
-    /* background-image: linear-gradient(#aad0ff, #ffd391);
-    background-clip: text;
-    color: transparent; */
-}
-
-h2 {
-    text-align: center;
     background-image: linear-gradient(to right, #6ea1ff, #ff8940);
     background-clip: text;
-    color: transparent;
+    color: transparent
 }
-
-/* html, body {
-    width: 100%;
-    height:100%;
-  }
-  
-body {
-    background: linear-gradient(-45deg, #fff9f7, #ffddea, #eaf9ff, #e6fff9);
-    background-size: 400% 400%;
-    animation: gradient 120s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
 
 .container {
     margin: auto;
