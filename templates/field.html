@@ -27,11 +27,11 @@
     <div id="banner"></div>
     <div class="container">
 
-        <h1>{{ field }}</h1><form action="/">
+        <h1>{{ field.capitalize() }}</h1><form action="/">
 
         <h5>Modules</h5>
         {% for topic in topics%}
-        <a href="{{ field.lower() }}/{{ topic.lower() }}" id="menu_item">{{ topic }}</a><br>
+        <a href="{{ field }}/{{ topic }}" id="menu_item">{{ topic.capitalize() }}</a><br>
         {% endfor %}<br><br><br><br><br><br>
 
         <a href="/" id="home">Home</a><br>

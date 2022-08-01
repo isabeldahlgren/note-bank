@@ -29,7 +29,7 @@
       <form action="/"><button class="btn" style="float: right"><i class="fa fa-home"></i></button></form>
       <div id="mySidenav" class="sidenav">
         {% for topic in topics %}
-        <a href="./{{ topic }}" id="menu_item">{{ topic }}</a><br>
+        <a href="./{{ topic }}" id="menu_item">{{ topic.capitalize() }}</a><br>
         {% endfor %}
       </div>
     </div>

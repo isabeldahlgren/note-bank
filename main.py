@@ -15,20 +15,21 @@ async def load_home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-""" @app.get("/{path}", response_class=HTMLResponse)
+@app.get("/{path}", response_class=HTMLResponse)
 async def load_field(path: str, request: Request):
-    print("In basic func!")
+    print(f"In load_field: {path}")
     files = [file for file in os.listdir(f'./{path}') if file[-4:] == ".tex"]
-    topics = [file[:-4].capitalize() for file in files]
-    return templates.TemplateResponse("field.html", {"request": request, "field": path.capitalize(), "topics": topics})
- """
+    topics = [file[:-4] for file in files]
+    return templates.TemplateResponse("field.html", {"request": request, "field": path, "topics": topics})
+
 
 @app.get("/{file_path:path}", response_class=HTMLResponse)
 async def load_module(file_path: str, request: Request):
     delimiter = '/'
-    field = file_path.split(delimiter)[0].capitalize()
+    print(f"In load_module: {file_path}")
+    field = file_path.split(delimiter)[0]
     files = [file for file in os.listdir(f'./{field}') if file[-4:] == ".tex"]
-    topics = [file[:-4].capitalize() for file in files]
+    topics = [file[:-4] for file in files]
     if not delimiter in file_path:
         return templates.TemplateResponse("field.html", {"request": request, "field": field, "topics": topics})
     else:
