@@ -16,7 +16,7 @@ async def load_home(request: Request):
 
 
 @app.get("/{path}", response_class=HTMLResponse)
-async def load_module(path: str, request: Request):
+async def load_field(path: str, request: Request):
     files = [file for file in os.listdir(f'./{path}') if file[-4:] == ".tex"]
     topics = [file[:-4].capitalize() for file in files]
     return templates.TemplateResponse("field.html", {"request": request, "field": path.capitalize(), "topics": topics})
@@ -24,13 +24,14 @@ async def load_module(path: str, request: Request):
 
 @app.get("/{file_path:path}", response_class=HTMLResponse)
 async def load_module(file_path: str, request: Request):
-    field = file_path.split('/')[0].capitalize()
+    delimiter = '/'
+    field = file_path.split(delimiter)[0].capitalize()
     files = [file for file in os.listdir(f'./{field}') if file[-4:] == ".tex"]
     topics = [file[:-4].capitalize() for file in files]
-    if not '/' in file_path:
+    if not delimiter in file_path:
         return templates.TemplateResponse("field.html", {"request": request, "field": field, "topics": topics})
     else:
-        module = file_path.split('/')[1]
+        module = file_path.split(delimiter)[1]
         path = f'./{field}/{module}.tex'
         content = converter(path)
         return templates.TemplateResponse("module.html", {"request": request, "field": field, "topics": topics, "content": content})
