@@ -1,24 +1,10 @@
-h1 {
-    font-size: 50px;
-}
-
 #menu_item {
 	text-decoration: none;
     color: rgb(146, 146, 146);
     transition: opacity 0.2s;
-  }
+}
     
 #menu_item:hover {
-    color: #464646;
-}
-
-#home {
-	color: rgb(146, 146, 146);
-    text-decoration: none;
-	transition: opacity 0.2s;
-}
-
-#home:hover {
     color: #464646;
 }
 
@@ -40,3 +26,10 @@ h1 {
 		background-position: 0% 50%;
 	}
 }
+
+@media (min-width: 992px) {
+    .container {
+        width: 50%;
+        padding: 20px;
+    }
+ }
