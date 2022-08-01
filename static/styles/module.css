@@ -1,3 +1,16 @@
+h1, h2, h3, h4, h5, h6 {
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+.sidenav {
+  position: sticky;
+  height: 100%;
+  width: 25%;
+  top: 0px;
+  padding: 10px;
+}
+
 #menu_item {
   text-decoration: none;
   color: rgb(146, 146, 146);
@@ -16,8 +29,8 @@
 
 @media (min-width: 992px) {
   .container {
-      width: 50%;
-      margin-top: 20px;
+    width: 50%;
+    margin-top: 20px;
   }
 }
 
@@ -38,35 +51,24 @@
 }
 
 .hashtag {
-    text-decoration: none;
-    transition: 0.2s;
-    color:#d2d2d2;
-    padding-left: 5px;
+  text-decoration: none;
+  transition: 0.2s;
+  color: #d2d2d2;
+  padding-left: 5px;
 }
 
 .hashtag:hover {
-    color:#8c8c8c;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  padding-top: 20px;
-  margin-top: -20px;
-}
-
-.sidenav {
-  position: sticky;
-  height: 100%;
-  width: 25%;
-  top: 0px;
-  padding: 10px;
+  color: #8c8c8c;
 }
 
 ::-webkit-scrollbar {
   width: 7px;
 }
-::-webkit-scrollbar-track{
-  background:#ffffff;
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
 }
-::-webkit-scrollbar-thumb{
-  background:#b6b6b6;
+
+::-webkit-scrollbar-thumb {
+  background: #b6b6b6;
 }
