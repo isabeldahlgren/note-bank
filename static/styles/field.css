@@ -1,0 +1,42 @@
+h1 {
+    font-size: 50px;
+}
+
+#menu_item {
+	text-decoration: none;
+    color: rgb(146, 146, 146);
+    transition: opacity 0.2s;
+  }
+    
+#menu_item:hover {
+    color: #464646;
+}
+
+#home {
+	color: rgb(146, 146, 146);
+    text-decoration: none;
+	transition: opacity 0.2s;
+}
+
+#home:hover {
+    color: #464646;
+}
+
+#banner {
+	background: linear-gradient(-45deg, #5081a1, #7b495c, #7e7d72, #5f9084);
+	background-size: 400% 400%;
+	animation: gradient 120s ease infinite;
+	height: 20vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

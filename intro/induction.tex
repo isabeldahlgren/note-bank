@@ -25,21 +25,25 @@ Secondly, assume that the formula holds for some particular $n$. For $n + 1$, yo
     &= \frac{n(n + 1)}{2} + (n + 1) = \frac{n(n + 1) + 2 \cdot (n + 1)}{2}\\
     &= \frac{(n + 1)(n + 2)}{2} = \frac{(n + 1)((n + 1) + 1)}{2} \\
 \end{align*}
-But the final expression is just the sum formula for $n + 1$. Hence, if the formula is true for $n$, it is also true for $n + 1$.
+But the final expression is just the sum formula for $n + 1$. Hence, if the formula is true for $n$, it is also true for $n + 1$. This finding, along with the fact that the formula is true for $n = 1$, actually guarantees that the formula is true for all $n \geq 1$.
 
-This finding, along with the fact that the formula is true for $n = 1$, actually guarantees that the formula is true for all $n \geq 1$.
+This might seem like a leap of faith, but it can be proved with predicate logic.
 
-Induction is often likened to a domino effect. \simplequote{If the first domino brick is tipped, and a falling domino brick is heavy enough to tip the next, every domino brick will fall.}
+Induction can also be likened to a domino effect. \simplequote{If the first domino brick falls, and a domino brick is heavy enough to tip the next, every domino brick will fall.} In the example, you began by proving that the first domino brick could be tipped. Then you showed that a domino brick could cause the next to topple over.
 
 \subsection*{The Principle of Induction}
-In general, suppose you want to prove a statement for all $n \geq n_0$, where $n_0$ is some natural number. Let $P(n)$ be shorthand for 'the statement is true for the number $n$'. An inductive proof involves two steps.
-\begin{enumerate}
-    \item Base case: show that $P(n_0)$.
-    \item Inductive step: show that 'if $P(n)$, then $P(n + 1)$'. The assumption that $P(n)$ is called the inductive hypothesis.
-\end{enumerate}
-At this stage, you have effectively shown that $P(n)$ for all $n \geq n_0$.
+Inductive proofs follow the same template.
 
-When people refer to the Principle of Induction, all they mean is the idea that (1) and (2) imply that $P(n)$ for all $n \geq n_0$. Loosely speaking, the Principle of Induction is the idea that induction works. There are may proof techniques out there, but induction may prove useful if you're dealing with natural numbers.
+\begin{theorem}[The Principle of Induction]
+    Let $n$ be an integer, and let $P(n)$ be a statement about $n$. The principle of induction is a way of proving that $P(n)$ is true for all integers $n \geq n_0$, where $n_0$ is some integer. It involves two steps:
+    \begin{enumerate}
+        \item Base case: show that $P(n_0)$.
+        \item Inductive step: assume that $P(n)$, and show that this leads to $P(n + 1)$.
+    \end{enumerate}
+    Then you can conclude that $P(n)$ for all $n \geq n_0$.
+\end{theorem}
+
+There are may proof techniques out there, but induction may prove useful if you're dealing with natural numbers.
 
 \subsection*{Additional material}
 In this course, you will use induction to prove formulas, inequalities and divisibility.

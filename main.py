@@ -14,10 +14,17 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def load_home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/{page}", response_class=HTMLResponse)
-async def load_module(page, request: Request):
-    files = [file for file in os.listdir(f'./{page}') if file[-4:] == ".tex"]
-    paths = [os.path.join(f'./{page}', file) for file in files]
-    topics = [file[:-4] for file in files]
-    content = converter(paths)
-    return templates.TemplateResponse("module.html", {"request": request, "content": content, "topics": topics})
+@app.get("/{file_path:path}", response_class=HTMLResponse)
+async def load_module(file_path: str, request: Request):
+
+    field = file_path.split('/')[0].capitalize()
+    files = [file for file in os.listdir(f'./{field}') if file[-4:] == ".tex"]
+    topics = [file[:-4].capitalize() for file in files]
+
+    if not '/' in file_path:
+        return templates.TemplateResponse("field.html", {"request": request, "field": field, "topics": topics})
+    else:
+        module = file_path.split('/')[1]
+        path = f'./{field}/{module}.tex'
+        content = converter(path)
+        return templates.TemplateResponse("module.html", {"request": request, "field": field, "topics": topics, "content": content})
