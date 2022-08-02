@@ -1,0 +1,53 @@
+\documentclass{scrreprt}
+\usepackage{everything}
+\begin{document}
+
+\section*{Quickstart}
+To get started, you only need to include the package called \texttt{everything}. It will have you covered.
+
+The package isn't built in, so you'll have to place the file \texttt{everything.sty} in the directory with your document. If you copied the Overleaf project from GitHub, the file will already be there. You're all good!
+
+Please give the file a descriptive name. The file's name will be displayed as a clickable link on the site.
+
+\subsection*{Sections and subsections}
+The \texttt{documentclass} is a \texttt{scrreprt} and not an article, so as to mimic the display on the site. If you add a title, your file won't compile. 
+
+To create headers, use \texttt{section*}, \texttt{subsection*} and \texttt{subsubsection*}.
+
+\subsection*{Math commands}
+All regular commands work in math mode. You could, for example, write $X: \Omega \mapsto \mathbb{R}^2$.
+
+Double dollar expressions work too:
+$$e^{i \pi} = -1$$
+
+And should you need more lines, use the \texttt{align*} environment.
+\begin{align*} 
+2x - 5y &=  8 \\ 
+3x + 9y &=  -12
+\end{align*}
+
+Theorems and definitions work as usual. On the website, they're displayed in boxes.
+
+\begin{theorem}[Fundamental theorem of something]
+Here goes some text, and possibly some equations.
+\end{theorem}
+\begin{proof}
+Here goes the proof.
+\end{proof}
+
+\begin{definition}[A definition]
+This is a definition.
+\end{definition}
+
+\subsection*{Misc}
+You can also insert quotes. For quotes with sources, use the \texttt{somequote} command.
+
+\somequote{Don't spread fake news.}{Plato}{The Republic}
+
+But there's also a \texttt{simplequote} command, if you don't know the source.
+
+\simplequote{Be kind to others.}
+
+Happy TeXing!
+
+\end{document}
