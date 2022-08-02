@@ -7,6 +7,7 @@ a:hover {
 }
 
 h1 {
+    font-size: 75px;
     text-align: center;
     background-image: linear-gradient(to right, #6ea1ff, #ff8940);
     background-clip: text;
