@@ -14,8 +14,8 @@ def converter(latex_file):
         txt = txt[(txt.find('\\begin{document}') + 16):txt.find('\\end{document}')]
 
         # Creating titles
-        txt = re.sub('\\\\section(\*)?{(.*)}', r'<h4 id="\2">\2<a class="hashtag" href="#\2">#</a></h4><p>', txt)
-        txt = re.sub('\\\\subsection(\*)?{(.*)}', r'</p><h5 id="\2">\2<a class="hashtag" href="#\2">#</a></h5><p>', txt)
+        txt = re.sub('\\\\section(\*)?{(.*)}', r'<h4 id="\2">\2<a id="hashtag" href="#\2">#</a></h4><p>', txt)
+        txt = re.sub('\\\\subsection(\*)?{(.*)}', r'</p><h5 id="\2">\2<a id="hashtag" href="#\2">#</a></h5><p>', txt)
 
         # Creating theorem/definition cards
         txt = re.sub('\\\\begin\{theorem\}', '</p><div class="card"><div class="card-body"> &#128205 ', txt)

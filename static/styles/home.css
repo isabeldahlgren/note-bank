@@ -1,17 +1,17 @@
+#menu_item {
+	text-decoration: none;
+	color: rgb(146, 146, 146);
+}
+
+#menu_item:hover {
+	color: #464646;
+}
+
 a {
   color: rgb(146, 146, 146);
 }
 
 a:hover {
-  color: #464646;
-}
-
-#menu_item {
-  text-decoration: none;
-  color: rgb(146, 146, 146);
-}
-
-#menu_item:hover {
   color: #464646;
 }
 

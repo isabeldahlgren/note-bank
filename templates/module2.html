@@ -1,0 +1,35 @@
+{% extends "basic.html" %}
+
+{% block body %}
+
+<div class="header">
+    <button id="btn" onclick="toggle()">&#9776;</button>
+    <form action="/"><button id="btn"><i class="fa fa-home"></i></button></form>
+    <div id="mySidenav" class="sidenav">
+        {% for topic in topics %}
+        <a href="./{{ topic }}" id="module_menu">{{ topic.capitalize() }}</a><br>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+
+    {{ content | safe }}
+
+    <script>
+
+        function toggle() {
+            var links = document.getElementById("mySidenav").children;
+            for (i = 0; i < links.length; i++) {
+                if (links[i].classList.contains('show')) {
+                    links[i].classList.remove('show');
+                }
+                else {
+                    links[i].classList.add('show');
+                }
+            }
+        }
+
+    </script>
+
+{% endblock %}

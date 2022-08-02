@@ -1,0 +1,19 @@
+{% extends "basic.html" %}
+
+{% block body %}
+
+<div id="banner"></div>
+<div class="container">
+
+    <h2>{{ field.capitalize() }}</h2><form action="/">
+
+    <h5>Modules</h5>
+    {% for topic in topics%}
+    <a href="{{ field }}/{{ topic }}" id="menu_item">{{ topic.capitalize() }}</a><br>
+    {% endfor %}<br><br><br><br><br><br>
+
+    <a href="/" id="menu_item">Home</a><br>
+
+</div>
+
+{% endblock %}
