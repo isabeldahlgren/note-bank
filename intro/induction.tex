@@ -6,15 +6,15 @@
 Mathematical induction is a proof technique used to prove patterns.
 
 \subsection*{The need for induction}
-Have a look at the following formula.
+
+Have a look at the sum formula:
 $$\sum_{k = 1}^n k = \frac{n(n + 1)}{2}$$
 How could you prove it for every $n \geq 1$?
 
-For starters, you might verify the formula, plugging in a few values for $n$. For example,
+Of course, you might verify the formula, plugging in a few values for $n$. For example,
 $$n = 3: \qquad 1 + 2 + 3 = 6 = \frac{3(3 + 1)}{2}$$
-You could work through the calculations for a bunch of other $n$:s. However, your task was to prove it for every possible $n$. You would have to perform the same calculation an infinite number of times.
+However, your task was to prove it for every possible $n$. You'd have to perform the same calculation an infinite number of times.
 
-\subsection*{Inductive proof of the sum formula}
 Induction uses a bit of logic to sidestep this problem.
 
 Firstly, you should check that the formula holds for $n = 1$.
@@ -29,7 +29,7 @@ But the final expression is just the sum formula for $n + 1$. Hence, if the form
 
 This might seem like a leap of faith, but it can be proved with predicate logic.
 
-Induction can also be likened to a domino effect. \simplequote{If the first domino brick falls, and a domino brick is heavy enough to tip the next, every domino brick will fall.} In the example, you began by proving that the first domino brick could be tipped. Then you showed that a domino brick could cause the next to topple over.
+Induction can also be likened to a domino effect. \simplequote{If the first domino brick falls, and a domino brick is heavy enough to tip the next, every domino brick will fall.} In this example, you began by proving that the first domino brick could be tipped. Then you showed that a domino brick could cause the next to topple over.
 
 \subsection*{The Principle of Induction}
 Inductive proofs follow the same template.
@@ -38,16 +38,42 @@ Inductive proofs follow the same template.
     Let $n$ be an integer, and let $P(n)$ be a statement about $n$. The principle of induction is a way of proving that $P(n)$ is true for all integers $n \geq n_0$, where $n_0$ is some integer. It involves two steps:
     \begin{enumerate}
         \item Base case: show that $P(n_0)$.
-        \item Inductive step: assume that $P(n)$, and show that this leads to $P(n + 1)$.
+        \item Inductive step: show the implication $P(n) \Rightarrow P(n + 1)$.
     \end{enumerate}
     Then you can conclude that $P(n)$ for all $n \geq n_0$.
 \end{theorem}
+The assumption that $P(n)$ from the inductive step is called the inductive hypothesis.
 
-There are may proof techniques out there, but induction may prove useful if you're dealing with natural numbers.
+As a rule of thumb, whenever you're dealing with natural numbers, consider an inductive proof.
+
+\subsection*{Proving divisibility}
+In this course, you will use induction to prove formulas, inequalities and divisibility. Formulas and inequalities are pretty straightforward.
+
+But how would you prove that $6$ divides $8^n - 2^n$ for every $n \in \mathbb{N}^+$?
+
+To begin with, specify what you're asked to prove. If $6$ divides $8^n - 2^n$, you can pull out a factor $6$ from $8^n - 2^n$. Specifically,
+\begin{definition}
+    Let $a, b \in \mathbb{Z}$. $a$ is divisible by $b$ if there exists a $c \in \mathbb{Z}$ such that $a = b \cdot c$.
+\end{definition}
+In this definition, $c$ is just the quota. The definition says that there must exist a quota, so we can write $a = b \cdot c$.
+
+Definitions are important because otherwise you don't know what to prove. Also, definitions might hint how you could proceed. In this case, your goal is to show that $8^n - 2^n = 6 \cdot c$.
+
+\begin{enumerate}
+    \item Base case: $8^1 - 2^1 = 6 = 6 \cdot \underbrace{1}_{c}$.
+    \item Inductive step: suppose that $8^n - 2^n = 6c$, for some $c$. Then
+    
+    \begin{align*}
+        & 8^{n + 1} - 2^{n + 1} \\
+        =& 8^n \cdot 8 - 2^n \cdot 2 \\
+        =& \underbrace{8^n - 2^n}_{6c} + \underbrace{8^n - 2^n}_{6c} + 8^n \cdot 6 \\
+        =& 6 \cdot \underbrace{(c + c + 6)}_{c'} \\
+        =& 6 \cdot c'
+    \end{align*}
+\end{enumerate}
+That's it. In the definition, there's nothing special about the letter $c$. If you can prove that there exists a number, call it $c$, $d$ or whatever you may, such that $a = b \cdot (\text{the number})$, you're good.
 
 \subsection*{Additional material}
-In this course, you will use induction to prove formulas, inequalities and divisibility.
-
-But induction can be applied to other kinds of problems too. For example, suppose $f(x) = \frac{1}{x}$. Then you could use induction to prove that $$f^n(x) = (-1)^n \cdot n! \cdot x^{-(n + 1)}$$ Can you see how?
+Induction can be applied to other kinds of problems too. For example, suppose $f(x) = \frac{1}{x}$. Then you could use induction to prove that $$f^n(x) = (-1)^n \cdot n! \cdot x^{-(n + 1)}$$ Can you see how?
 
 \end{document}

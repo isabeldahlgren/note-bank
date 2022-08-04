@@ -18,8 +18,8 @@ def converter(latex_file):
         txt = re.sub('\\\\subsection(\*)?{(.*)}', r'</p><h5 id="\2">\2<a id="hashtag" href="#\2">#</a></h5><p>', txt)
 
         # Creating theorem/definition cards
-        txt = re.sub('\\\\begin\{theorem\}', '</p><div class="card"><div class="card-body"> &#128205 ', txt)
-        txt = re.sub('\\\\begin\{definition\}', '</p><div class="card"><div class="card-body"> &#128273 ', txt)
+        txt = re.sub('\\\\begin\{theorem\}', '</p><div class="card"><div class="card-body"> &#128205 <b>Theorem.</b> ', txt)
+        txt = re.sub('\\\\begin\{definition\}', '</p><div class="card"><div class="card-body"> &#128273 <b>Definition.</b> ', txt)
         txt = re.sub('\\\\end\{(theorem|definition)\}', '</div></div><br><p>', txt)
         txt = re.sub('\[(.*)\]', r'<b>\1</b><br>', txt)
 
