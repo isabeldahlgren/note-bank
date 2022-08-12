@@ -3,10 +3,11 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from converter import converter
+from markdown import markdown
 import os
 
-app = FastAPI()
 
+app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -18,15 +19,16 @@ async def load_home(request: Request):
 
 @app.get("/{file_path:path}", response_class=HTMLResponse)
 async def load_module(file_path: str, request: Request):
-    delimiter = '/'
-    print(f"In load_module: {file_path}")
-    field = file_path.split(delimiter)[0]
-    files = [file for file in os.listdir(f'./{field}') if file[-4:] == ".tex"]
+    field = file_path.split("/")[0]
+    files = [file for file in os.listdir(f"./{field}") if file[-4:] == ".tex"]
     topics = [file[:-4] for file in files]
-    if not delimiter in file_path:
-        return templates.TemplateResponse("field.html", {"request": request, "field": field, "topics": topics})
+    if not "/" in file_path:
+        description = str()
+        with open(os.path.join(f"./{field}", "description.md")) as file:
+            description += markdown(file.read())
+        return templates.TemplateResponse("field.html", {"request": request, "field": field, "description": description, "topics": topics})
     else:
-        module = file_path.split(delimiter)[1]
-        path = f'./{field}/{module}.tex'
+        module = file_path.split("/")[1]
+        path = f"./{field}/{module}.tex"
         content = converter(path)
         return templates.TemplateResponse("module.html", {"request": request, "field": field, "topics": topics, "content": content})

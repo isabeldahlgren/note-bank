@@ -44,4 +44,8 @@ def converter(latex_file):
         txt = re.sub('\\\\end{itemize}', '</ul>', txt)
         txt = re.sub('\\\\item (.*)', r'<li>\1</li>', txt)
 
+        # Support for images
+        txt = re.sub('\\\\begin{tikzpicture}', '<script type="text/tikz"> \\\\begin{tikzpicture} \n', txt)
+        txt = re.sub('\\\\end{tikzpicture}', '\\\\end{tikzpicture} \n </script>', txt)
+
         return txt

@@ -34,6 +34,10 @@
 
         <!-- Our stylesheet -->
         <link rel="stylesheet" href="{{ url_for('static', path='/styles/stylesheet.css') }}">
+
+        <!-- To convert Tikz images -->
+        <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+        <script src="http://tikzjax.com/v1/tikzjax.js"></script>
     </head>
     <body>
         {% block body %}{% endblock %}
