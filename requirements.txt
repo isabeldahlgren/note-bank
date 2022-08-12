@@ -1,3 +1,4 @@
 fastapi==0.73.0
 Jinja2==3.0.3
 uvicorn==0.17.1
+markdown==3.4.1
