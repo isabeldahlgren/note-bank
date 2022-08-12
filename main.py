@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from converter import converter
-from markdown import markdown
+import markdown
 import os
 
 
@@ -25,7 +25,7 @@ async def load_module(file_path: str, request: Request):
     if not "/" in file_path:
         description = str()
         with open(os.path.join(f"./{field}", "description.md")) as file:
-            description += markdown(file.read())
+            description += markdown.markdown(file.read())
         return templates.TemplateResponse("field.html", {"request": request, "field": field, "description": description, "topics": topics})
     else:
         module = file_path.split("/")[1]
