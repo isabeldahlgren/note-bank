@@ -4,6 +4,6 @@ This is a website with bite-sized explainers of mathematical concepts, aimed at 
 
 Want to contribute? You're most welcome to write up notes or make changes to the code. It mustn't be anything grand - even small changes are much appreciated.
 
-Here is an [Overleaf template](https://www.overleaf.com/project/62e3dcc83f59d5558887bdbd) for a lecture note. The same files can also be found under the directory `overleaf-template`. Once you're done, submit a pull request with your lecture note. If you're not comfortable with GitHub, feel free to [email](mailto:isabelda@kth.se).
+Here is an [Overleaf template](https://www.overleaf.com/read/qsyfmbbhzdmc) for a lecture note. The same files can also be found under the directory `overleaf-template`. Once you're done, submit a pull request with your lecture note. If you're not comfortable with GitHub, feel free to [email](mailto:isabelda@kth.se).
 
 Thanks!
