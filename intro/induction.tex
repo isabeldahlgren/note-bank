@@ -62,7 +62,7 @@ Definitions are important because otherwise you don't know what to prove. Also, 
 \begin{enumerate}
     \item Base case: $8^1 - 2^1 = 6 = 6 \cdot \underbrace{1}_{c}$.
     \item Inductive step: suppose that $8^n - 2^n = 6c$, for some $c$. Then
-    
+
     \begin{align*}
         & 8^{n + 1} - 2^{n + 1} \\
         =& 8^n \cdot 8 - 2^n \cdot 2 \\
@@ -70,6 +70,7 @@ Definitions are important because otherwise you don't know what to prove. Also, 
         =& 6 \cdot \underbrace{(c + c + 6)}_{c'} \\
         =& 6 \cdot c'
     \end{align*}
+    
 \end{enumerate}
 That's it. In the definition, there's nothing special about the letter $c$. If you can prove that there exists a number, call it $c$, $d$ or whatever you may, such that $a = b \cdot (\text{the number})$, you're good.
 
