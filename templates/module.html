@@ -7,7 +7,7 @@
     <form action="/"><button id="btn"><i class="fa fa-home"></i></button></form>
     <div id="mySidenav" class="sidenav">
         {% for topic in topics %}
-        <a href="./{{ topic }}" id="module_menu">{{ topic.capitalize() }}</a><br>
+        <a href="./{{ topic }}" id="module_menu">{{ topic.capitalize().split("_") | join(" ") }}</a><br>
         {% endfor %}
     </div>
 </div>
