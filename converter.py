@@ -23,6 +23,11 @@ def converter(latex_file):
         txt = re.sub('\\\\end\{(theorem|definition)\}', '</div></div><br><p>', txt)
         txt = re.sub('\[(.*)\]', r'<b>\1</b><br>', txt)
 
+        # Creating proofs
+        txt = re.sub('\\\\begin\{proof\}', '<p><b>Proof: </b>', txt)
+        txt = re.sub('\\\\end\{proof\}', '<br>&#9632</p>', txt)
+
+
         # Creating block quotes
         txt = re.sub('\\\\somequote{(.*)}{(.*)}{(.*)}', r'''</p><figure>
         <blockquote class="blockquote">

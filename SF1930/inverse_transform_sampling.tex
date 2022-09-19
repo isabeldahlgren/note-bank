@@ -4,7 +4,25 @@
 
 \section{Inverse transform sampling}
 
-\subsection*{Quick proof}
-Coming soon...
+How do you generate a random sample? Hey, importing a library counts as cheating. Enter inverse transform sampling.
+
+\begin{theorem}[Inverse transform sampling]
+    To generate a random sample $x_1, \dots, x_n$, generate $u_1, \dots, u_n$ from $\text{U}(0, 1)$ and let $x_i = F_X^{-1}(u_i)$ for $i = 1, \dots, n$.
+\end{theorem}
+
+There are two ways to understand this result.
+
+\subsection*{The CDF proof}
+\begin{proof}
+    If we can show that the random variable $Y = F_X^{-1}(U)$ has the same CDF as $X$, we're done. And as it turns out,
+    $$F_Y(y) = P(F_X^{-1}(U) < y) = P(U < F_X(y)) = F_X(y)$$
+    Here, we've used the fact that the CDF is monotonic and increasing.
+\end{proof}
+
+\subsection*{The transformation proof}
+\begin{proof}
+    In this proof, we shall transform the random variable $Y = F_X^{-1}(U)$ and show that its PDF is $f_x(y)$.
+    $$f_Y(y) = f_U(F_X(y)) \cdot \dfrac{dF_X}{dy} = f_X(y)$$
+\end{proof}
 
 \end{document}
